@@ -1,0 +1,58 @@
+/* --------------------------------------------------------------------------
+   BuildWise global styles
+   -------------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+/* Design tokens */
+:root {
+  font-family: "Manrope", system-ui, sans-serif;
+  color: #edf4ff;
+  background: #080f1d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #080f1d;
+  --panel: #0e1729;
+  --panel-2: #121d31;
+  --line: rgba(151, 183, 225, 0.14);
+  --muted: #9aaac0;
+  --muted-2: #7890ad;
+  --cyan: #57d7f5;
+  --blue: #4f8cff;
+  --green: #53d49b;
+  --orange: #f8b568;
+  --red: #ff777d;
+}
+/* Reset and document defaults */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(
+      900px 600px at 84% -5%,
+      rgba(36, 79, 153, 0.18),
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 500px at 9% 30%,
+      rgba(26, 70, 107, 0.12),
+      transparent 70%
+    ),
+    var(--bg);
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  color: inherit;
+}
