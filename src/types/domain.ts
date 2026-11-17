@@ -1,56 +1,8 @@
 export type BuilderMode = 'game' | 'custom' | 'manual'
-
 export type ComponentCategory = 'CPU' | 'GPU' | 'Motherboard' | 'Memory' | 'Storage' | 'Power Supply' | 'Case' | 'CPU Cooler'
-
-export type CatalogComponent = {
-  id: string
-  category: ComponentCategory
-  name: string
-  manufacturer: string
-  price: number
-  specs: Record<string, string>
-  socket?: string
-  memoryType?: 'DDR4' | 'DDR5'
-  formFactor?: 'ATX' | 'Micro ATX' | 'Mini ITX'
-  wattage?: number
-  gpuLength?: number
-  caseGpuClearance?: number
-  cpuCoolerHeight?: number
-  caseCoolerClearance?: number
-  performanceTier: 'entry' | 'mid' | 'high' | 'enthusiast'
-}
-
-export type Game = {
-  id: string
-  title: string
-  genre: string
-  image: string
-  demand: 'light' | 'balanced' | 'demanding'
-}
-
-export type CompatibilityIssue = {
-  severity: 'error' | 'warning' | 'success'
-  title: string
-  detail: string
-  suggestion?: string
-}
-
-export type Build = {
-  id: string
-  title: string
-  subtitle: string
-  components: Partial<Record<ComponentCategory, CatalogComponent>>
-  issues: CompatibilityIssue[]
-  estimate: string
-  total: number
-}
-
-export type BuildRequest = {
-  mode: BuilderMode
-  games?: string[]
-  resolution?: string
-  performanceGoal?: string
-  useCase?: string
-  preferences?: Record<string, string>
-  budget?: string
-}
+export type ApiComponent = { id:number; type:number; name:string; manufacturer:string; modelNumber:string; description?:string|null; estimatedPrice?:number|null; performanceTier:string; specifications:Record<string,string>; socket?:string|null; memoryType?:string|null; formFactor?:string|null; supportedSockets:string[]; supportedMemoryTypes:string[]; supportedFormFactors:string[]; powerConsumptionWatts?:number|null; wattage?:number|null; lengthMm?:number|null; heightMm?:number|null; capacityGb?:number|null; memoryCapacityGb?:number|null; memorySlots?:number|null; maxMemoryCapacityGb?:number|null; storageInterface?:string|null }
+export type CatalogComponent = { id:string; category:ComponentCategory; name:string; manufacturer:string; price:number; specs:Record<string,string>; socket?:string; memoryType?:string; formFactor?:string; wattage?:number; gpuLength?:number; caseGpuClearance?:number; cpuCoolerHeight?:number; caseCoolerClearance?:number; performanceTier:string; api:ApiComponent }
+export type Game = { id:number; slug:string; title:string; genre:string; image:string; demand:'light'|'balanced'|'demanding'; description?:string }
+export type CompatibilityIssue = { severity:'error'|'warning'|'success'; title:string; detail:string; suggestion?:string }
+export type Build = { id:string; title:string; subtitle:string; components:Partial<Record<ComponentCategory,CatalogComponent>>; issues:CompatibilityIssue[]; estimate:string; total:number|null }
+export type BuildRequest = { mode:BuilderMode; games?:number[]; resolution?:string; performanceGoal?:string; useCase?:string; preferences?:Record<string,string>; budget?:string }
